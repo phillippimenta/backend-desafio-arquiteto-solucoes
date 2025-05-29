@@ -10,6 +10,7 @@ import io.lettuce.core.api.StatefulRedisConnection;
 import io.lettuce.core.codec.ByteArrayCodec;
 import io.lettuce.core.codec.RedisCodec;
 import io.lettuce.core.codec.StringCodec;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -17,14 +18,18 @@ import java.time.Duration;
 import java.util.function.Supplier;
 
 @Configuration
+@EnableConfigurationProperties({
+        RedisProperties.class,
+        RateLimitProperties.class
+})
 public class RedisRateLimiterConfig {
 
     @Bean
-    public RedisClient redisClient() {
+    public RedisClient redisClient(RedisProperties properties) {
         return RedisClient.create(RedisURI.builder()
-                .withHost("localhost")
-                .withPort(6379)
-                .withSsl(false)
+                .withHost(properties.getHost())
+                .withPort(properties.getPort())
+                .withSsl(properties.isSsl())
                 .build());
     }
 
@@ -43,11 +48,11 @@ public class RedisRateLimiterConfig {
     }
 
     @Bean
-    public Supplier<BucketConfiguration> bucketConfiguration() {
+    public Supplier<BucketConfiguration> bucketConfiguration(RateLimitProperties properties) {
         return () -> BucketConfiguration.builder()
                 .addLimit(limit -> limit
-                        .capacity(10)
-                        .refillIntervally(10, Duration.ofMinutes(1))
+                        .capacity(properties.getCapacity())
+                        .refillIntervally(properties.getTokensPerPeriod(), Duration.ofMinutes(properties.getPeriod()))
                 )
                 .build();
     }
