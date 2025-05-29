@@ -18,8 +18,8 @@ Este backend é responsável por:
 
 ## 🚀 Tecnologias Utilizadas
 
-- Java 17
-- Spring Boot 3
+- Java 21
+- Spring Boot 3.5.0
 - PostgreSQL
 - RabbitMQ
 - Spring Data JPA
