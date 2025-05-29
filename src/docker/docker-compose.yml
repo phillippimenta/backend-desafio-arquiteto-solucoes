@@ -21,5 +21,10 @@ services:
     environment:
       RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
       RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS}
+  redis:
+    image: redis:7
+    container_name: redis
+    ports:
+      - "6379:6379"
 volumes:
   postgres_data:
