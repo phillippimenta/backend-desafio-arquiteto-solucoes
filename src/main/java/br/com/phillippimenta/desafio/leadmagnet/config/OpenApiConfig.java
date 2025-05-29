@@ -17,8 +17,8 @@ public class OpenApiConfig {
                         .version("v1")
                         .description("Captura de leads para onboarding do novo banco.")
                         .contact(new Contact()
-                                .name("Time de Tecnologia")
-                                .email("contato@banco.com.br")
+                                .name("Phillip Eduardo Pimenta Forte")
+                                .email("phillippimenta@gmail.com")
                         )
                 );
     }

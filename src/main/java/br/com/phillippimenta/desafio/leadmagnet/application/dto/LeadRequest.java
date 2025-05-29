@@ -10,15 +10,18 @@ import org.hibernate.validator.constraints.br.CPF;
 @Getter
 @Setter
 public class LeadRequest {
-    @NotBlank
+    @NotBlank(message = "O nome é obrigatório.")
     private String name;
-    @CPF
-    @NotBlank
+    @CPF(message = "O CPF informado é inválido.")
+    @NotBlank(message = "O CPF é obrigatório.")
     private String cpf;
-    @Email
-    @NotBlank
+    @Email(message = "O e-mail informado é inválido.")
+    @NotBlank(message = "O e-mail é obrigatório.")
     private String email;
-    @NotBlank
-    @Pattern(regexp = "\\d{10,11}")
+    @NotBlank(message = "O telefone é obrigatório.")
+    @Pattern(
+            regexp = "\\d{10,11}",
+            message = "O telefone deve conter apenas números e ter entre 10 e 11 dígitos."
+    )
     private String phone;
 }
