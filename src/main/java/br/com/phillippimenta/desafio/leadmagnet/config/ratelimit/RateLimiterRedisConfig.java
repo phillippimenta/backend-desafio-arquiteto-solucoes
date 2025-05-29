@@ -1,5 +1,6 @@
-package br.com.phillippimenta.desafio.leadmagnet.config;
+package br.com.phillippimenta.desafio.leadmagnet.config.ratelimit;
 
+import br.com.phillippimenta.desafio.leadmagnet.config.redis.RedisProperties;
 import io.github.bucket4j.BucketConfiguration;
 import io.github.bucket4j.distributed.ExpirationAfterWriteStrategy;
 import io.github.bucket4j.distributed.proxy.ProxyManager;
@@ -22,7 +23,7 @@ import java.util.function.Supplier;
         RedisProperties.class,
         RateLimitProperties.class
 })
-public class RedisRateLimiterConfig {
+public class RateLimiterRedisConfig {
 
     @Bean
     public RedisClient redisClient(RedisProperties properties) {

@@ -1,4 +1,4 @@
-package br.com.phillippimenta.desafio.leadmagnet.config;
+package br.com.phillippimenta.desafio.leadmagnet.config.openapi;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;

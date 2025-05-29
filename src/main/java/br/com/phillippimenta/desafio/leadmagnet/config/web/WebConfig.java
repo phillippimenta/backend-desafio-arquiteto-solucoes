@@ -1,4 +1,4 @@
-package br.com.phillippimenta.desafio.leadmagnet.config;
+package br.com.phillippimenta.desafio.leadmagnet.config.web;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

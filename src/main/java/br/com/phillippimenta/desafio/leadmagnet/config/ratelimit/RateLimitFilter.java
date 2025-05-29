@@ -1,4 +1,4 @@
-package br.com.phillippimenta.desafio.leadmagnet.config;
+package br.com.phillippimenta.desafio.leadmagnet.config.ratelimit;
 
 import io.github.bucket4j.Bucket;
 import io.github.bucket4j.BucketConfiguration;

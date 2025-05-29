@@ -1,4 +1,4 @@
-package br.com.phillippimenta.desafio.leadmagnet.config;
+package br.com.phillippimenta.desafio.leadmagnet.config.messaging;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;

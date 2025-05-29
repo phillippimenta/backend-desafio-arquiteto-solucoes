@@ -1,4 +1,4 @@
-package br.com.phillippimenta.desafio.leadmagnet.config;
+package br.com.phillippimenta.desafio.leadmagnet.config.ratelimit;
 
 import lombok.Getter;
 import lombok.Setter;

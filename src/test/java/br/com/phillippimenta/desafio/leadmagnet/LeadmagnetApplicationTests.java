@@ -9,5 +9,4 @@ class LeadmagnetApplicationTests {
 	@Test
 	void contextLoads() {
 	}
-
 }
