@@ -22,6 +22,7 @@ Este backend é responsável por:
 - Spring Boot 3.5.0
 - PostgreSQL
 - RabbitMQ
+- Redis
 - Spring Data JPA
 - Spring Validation
 - Springdoc OpenAPI
@@ -31,11 +32,11 @@ Este backend é responsável por:
 
 ```
 src/
-├── application/         # Casos de uso e lógica de orquestração
+├── application/         # Services, DTOs, etc.
 ├── config/              # Configurações de beans, OpenAPI, filas, etc.
-├── domain/              # Entidades e interfaces de repositórios
-├── infrastructure/      # Implementações técnicas (JPA, mensageria, etc.)
-├── presentation/        # Controllers e DTOs
+├── domain/              # Entidades, exceptions, etc.
+├── infrastructure/      # Repository, mensageria, etc.
+├── presentation/        # Controllers
 └── LeadmagnetApplication.java
 ```
 
@@ -53,15 +54,33 @@ Crie um arquivo `.env` em `src/docker/.env` com as seguintes variáveis:
 
 ```env
 SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/leadmagnet
-SPRING_DATASOURCE_USERNAME=postgres
-SPRING_DATASOURCE_PASSWORD=postgres
+SPRING_DATASOURCE_USERNAME=usuario
+SPRING_DATASOURCE_PASSWORD=senha
 RABBITMQ_EXCHANGE=leadmagnet.exchange
 RABBITMQ_ROUTING_KEY=lead.created
 ```
 
+Configure as variáveis de ambiente abaixo:
+
+```env
+#Database
+SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/leadmagnet
+SPRING_DATASOURCE_USERNAME=usuario
+SPRING_DATASOURCE_PASSWORD=senha
+
+# RabbitMQ
+RABBITMQ_EXCHANGE=lead.exchange
+RABBITMQ_ROUTING_KEY=lead.created
+
+# Redis
+REDIS_HOST=localhost
+REDIS_PORT=6379
+REDIS_SSL=false
+```
+
 3. **Suba os serviços com Docker Compose**
 ```bash
-docker-compose up --build
+docker-compose up --build -d
 ```
 
 4. **Acesse a documentação da API**
