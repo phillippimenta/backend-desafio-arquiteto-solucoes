@@ -1,5 +1,7 @@
 # Backend - Desafio Técnico | Arquiteto de Soluções
 
+![Diagrama de Arquitetura Geral](https://raw.githubusercontent.com/phillippimenta/assets-desafio-arquiteto-solucoes/main/general-architecture-diagram.svg)
+
 Este repositório contém a implementação do backend para o **Desafio Técnico de Arquiteto de Soluções (Desenvolvedor Sênior)**, com foco em escalabilidade, segurança, mensageria e boas práticas de arquitetura.
 
 ## 📌 Descrição do Desafio
@@ -16,8 +18,8 @@ Este backend é responsável por:
 
 ## 🚀 Tecnologias Utilizadas
 
-- Java 17
-- Spring Boot 3
+- Java 21
+- Spring Boot 3.5.0
 - PostgreSQL
 - RabbitMQ
 - Spring Data JPA
