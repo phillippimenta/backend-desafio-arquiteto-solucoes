@@ -28,5 +28,20 @@ public class Lead implements Serializable {
     private String email;
     @Column(nullable = false)
     private String phone;
+    @Column(name = "created_at")
     private LocalDateTime createdAt;
+    @Column(name = "consent_given", nullable = false)
+    private boolean consentGiven;
+    @Column(name = "consent_ip")
+    private String consentIp;
+
+    // Evita exposição de dados sensíveis em logs
+    @Override
+    public String toString() {
+        return "Lead{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", createdAt=" + createdAt +
+                '}';
+    }
 }

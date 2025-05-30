@@ -1,6 +1,7 @@
 package br.com.phillippimenta.desafio.leadmagnet.infrastructure.messaging;
 
 import br.com.phillippimenta.desafio.leadmagnet.domain.Lead;
+import br.com.phillippimenta.desafio.leadmagnet.domain.LeadNotification;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -19,6 +20,7 @@ public class RabbitMQProducer {
     }
 
     public void sendMessage(Lead lead) {
-        rabbitTemplate.convertAndSend(exchange, routingKey, lead);
+        LeadNotification notification = new LeadNotification(lead);
+        rabbitTemplate.convertAndSend(exchange, routingKey, notification);
     }
 }

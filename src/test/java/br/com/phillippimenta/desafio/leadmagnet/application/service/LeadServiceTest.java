@@ -2,7 +2,7 @@ package br.com.phillippimenta.desafio.leadmagnet.application.service;
 
 import br.com.phillippimenta.desafio.leadmagnet.application.dto.LeadRequest;
 import br.com.phillippimenta.desafio.leadmagnet.domain.Lead;
-import br.com.phillippimenta.desafio.leadmagnet.domain.exception.LeadAlreadyExistsException;
+import br.com.phillippimenta.desafio.leadmagnet.domain.LeadAlreadyExistsException;
 import br.com.phillippimenta.desafio.leadmagnet.infrastructure.messaging.RabbitMQProducer;
 import br.com.phillippimenta.desafio.leadmagnet.infrastructure.persistence.LeadRepository;
 import org.junit.jupiter.api.BeforeEach;

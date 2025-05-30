@@ -1,5 +1,7 @@
 package br.com.phillippimenta.desafio.leadmagnet.application.dto;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.AssertTrue;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -24,4 +26,12 @@ public class LeadRequest {
             message = "O telefone deve conter apenas números e ter entre 10 e 11 dígitos."
     )
     private String phone;
+    @AssertTrue(message = "É necessário aceitar os termos da LGPD.")
+    private boolean consentGiven;
+    @Schema(hidden = true)
+    private String consentIp;
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf.replaceAll("[^\\d]", "");
+    }
 }

@@ -1,6 +1,6 @@
 package br.com.phillippimenta.desafio.leadmagnet.presentation;
 
-import br.com.phillippimenta.desafio.leadmagnet.domain.exception.LeadAlreadyExistsException;
+import br.com.phillippimenta.desafio.leadmagnet.domain.LeadAlreadyExistsException;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
